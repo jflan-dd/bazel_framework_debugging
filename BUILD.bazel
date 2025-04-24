@@ -5,7 +5,7 @@ swift_library(
     name = "Root",
     srcs = ["Root.swift"],
     deps = [
-        "@swiftpkg_singular_ios_sdk//:Singular",
+        "//Singular:Singular",
     ],
 )
 
