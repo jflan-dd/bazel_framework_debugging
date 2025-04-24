@@ -1,0 +1,116 @@
+$ bazel build //:Root.framework
+
+INFO: Analyzed target //:Root.framework (1 packages loaded, 28 targets configured).
+ERROR: /Users/johnflanagan/Projects/src/bazel_framework_test/BUILD.bazel:37:14: Linking Root.framework_bin failed: (Exit 1): wrapped_clang failed: error executing ObjcLink command (from target //:Root.framework) bazel-out/darwin_arm64-opt-exec-ST-d57f47055a04/bin/external/apple_support~/crosstool/wrapped_clang ... (remaining 1 argument skipped)
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+ld: warning: Could not parse or use implicit file '/Applications/Xcode-16.0.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/SwiftUICore.framework/SwiftUICore.tbd': cannot link directly with 'SwiftUICore' because product being built is not an allowed client of it
+Undefined symbols for architecture arm64:
+  "_OBJC_CLASS_$_SKAdNetwork", referenced from:
+       in Singular[arm64][26](SkanManager.o)
+  "_SCNetworkReachabilityCreateWithAddress", referenced from:
+      +[SingularFraudConfiguration getConnectionType] in Singular[arm64][24](SingularFraudConfiguration.o)
+  "_SCNetworkReachabilityCreateWithName", referenced from:
+      +[ApUtils connected] in Singular[arm64][20](ApUtils.o)
+  "_SCNetworkReachabilityGetFlags", referenced from:
+      +[ApUtils connected] in Singular[arm64][20](ApUtils.o)
+      +[SingularFraudConfiguration getConnectionType] in Singular[arm64][24](SingularFraudConfiguration.o)
+  "_compress", referenced from:
+      -[APBatchEvent send] in Singular[arm64][23](APAPI.o)
+  "_compressBound", referenced from:
+      -[APBatchEvent send] in Singular[arm64][23](APAPI.o)
+  "_sqlite3_bind_double", referenced from:
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APGDPREvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APGDPREvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APCustomUserIdEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APCustomUserIdEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      ...
+  "_sqlite3_bind_int", referenced from:
+      -[APDB(ApID) setDeviceKeys:] in Singular[arm64][18](ApID.o)
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APGDPREvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APGDPREvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APCustomUserIdEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APCustomUserIdEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      ...
+  "_sqlite3_bind_int64", referenced from:
+      -[APSession deleteFromDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APEvent deleteFromDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APGDPREvent deleteFromDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APCustomUserIdEvent deleteFromDatabase:] in Singular[arm64][23](APAPI.o)
+  "_sqlite3_bind_text", referenced from:
+      -[APDB(ApID) setDeviceKeys:] in Singular[arm64][18](ApID.o)
+      -[APDB(ApID) setDeviceKeys:] in Singular[arm64][18](ApID.o)
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      ...
+  "_sqlite3_column_double", referenced from:
+      -[APDB isCorrupted] in Singular[arm64][21](APDB.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      -[APDB(APEvents) events] in Singular[arm64][23](APAPI.o)
+      -[APDB(APEvents) events] in Singular[arm64][23](APAPI.o)
+      -[APDB(SLAdmonEvents) admonEvents] in Singular[arm64][23](APAPI.o)
+      -[APDB(SLAdmonEvents) admonEvents] in Singular[arm64][23](APAPI.o)
+  "_sqlite3_column_int", referenced from:
+      -[APDB(ApID) loadSQLiteDeviceKeys] in Singular[arm64][18](ApID.o)
+      -[APDB(APSession) sessionsTableExists] in Singular[arm64][23](APAPI.o)
+      -[APDB(APEvent) eventsTableExists] in Singular[arm64][23](APAPI.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      -[APDB(APEvents) events] in Singular[arm64][23](APAPI.o)
+      -[APDB(APEvents) events] in Singular[arm64][23](APAPI.o)
+      -[APDB(APEvents) events] in Singular[arm64][23](APAPI.o)
+      ...
+  "_sqlite3_column_text", referenced from:
+      -[APDB(ApID) loadSQLiteDeviceKeys] in Singular[arm64][18](ApID.o)
+      -[APDB(ApID) loadSQLiteDeviceKeys] in Singular[arm64][18](ApID.o)
+      +[APDB check_field_exists:table:field:] in Singular[arm64][21](APDB.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      -[APDB(APSessions) sessions] in Singular[arm64][23](APAPI.o)
+      ...
+  "_sqlite3_exec", referenced from:
+      +[APDB singular_sqlite3_exec:doSQL:doCallback:arg:error:] in Singular[arm64][21](APDB.o)
+  "_sqlite3_finalize", referenced from:
+      +[APDB singular_sqlite3_finalize:] in Singular[arm64][21](APDB.o)
+      -[APDB isCorrupted] in Singular[arm64][21](APDB.o)
+      -[APDB isCorrupted] in Singular[arm64][21](APDB.o)
+  "_sqlite3_initialize", referenced from:
+      ___12-[APDB open]_block_invoke in Singular[arm64][21](APDB.o)
+  "_sqlite3_last_insert_rowid", referenced from:
+      -[APSession writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APGDPREvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[APCustomUserIdEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+      -[SLAdmonEvent writeToDatabase:] in Singular[arm64][23](APAPI.o)
+  "_sqlite3_open_v2", referenced from:
+      ___12-[APDB open]_block_invoke in Singular[arm64][21](APDB.o)
+  "_sqlite3_prepare_v2", referenced from:
+      +[APDB singular_sqlite3_prepare_v2:doSQL:len:handle:unused:] in Singular[arm64][21](APDB.o)
+      -[APDB isCorrupted] in Singular[arm64][21](APDB.o)
+  "_sqlite3_reset", referenced from:
+      +[APDB singular_sqlite3_reset:] in Singular[arm64][21](APDB.o)
+      -[APDB isCorrupted] in Singular[arm64][21](APDB.o)
+  "_sqlite3_step", referenced from:
+      +[APDB singular_sqlite3_step:] in Singular[arm64][21](APDB.o)
+      -[APDB isCorrupted] in Singular[arm64][21](APDB.o)
+  "_sqlite3_threadsafe", referenced from:
+      ___12-[APDB open]_block_invoke in Singular[arm64][21](APDB.o)
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+Error in child process '/usr/bin/xcrun'. 1
+Target //:Root.framework failed to build
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 0.786s, Critical Path: 0.21s
+INFO: 2 processes: 2 internal.
+ERROR: Build did NOT complete successfully

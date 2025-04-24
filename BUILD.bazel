@@ -1,0 +1,44 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_build_test", "ios_framework")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+swift_library(
+    name = "Root",
+    srcs = ["Root.swift"],
+    deps = [
+        "@swiftpkg_singular_ios_sdk//:Singular",
+    ],
+)
+
+ios_build_test(
+    name = "RootBuildTest",
+    minimum_os_version = "17.0",
+    targets = [":Root"],
+)
+
+bundle_id = "com.root"
+
+genrule(
+    name = "info_plist",
+    outs = ["Info.plist"],
+    cmd = """
+    cat << EOF > $@
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    <key>CFBundleIdentifier</key>
+    <string>{}</string>
+    </dict>
+    </plist>
+    EOF
+    """.format(bundle_id),
+)
+
+ios_framework(
+    name = "Root.framework",
+    bundle_id = bundle_id,
+    families = ["iphone"],
+    infoplists = [":Info.plist"],
+    minimum_os_version = "17.0",
+    deps = ["Root"],
+)

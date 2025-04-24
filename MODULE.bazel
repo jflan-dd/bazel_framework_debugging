@@ -1,0 +1,18 @@
+bazel_dep(name = "rules_swift_package_manager", version = "0.47.2")
+bazel_dep(name = "rules_swift", version = "2.8.0", repo_name = "build_bazel_rules_swift")
+bazel_dep(name = "rules_apple", version = "3.20.1", repo_name = "build_bazel_rules_apple")
+
+#bazel_dep(name = "rules_xcodeproj", version = "2.11.2")
+bazel_dep(name = "apple_support", version = "1.21.1", repo_name = "build_bazel_apple_support")
+
+# rules_swift_package_manager extensions
+
+swift_deps = use_extension(
+    "@rules_swift_package_manager//:extensions.bzl",
+    "swift_deps",
+)
+swift_deps.from_package(
+    resolved = "//:Package.resolved",
+    swift = "//:Package.swift",
+)
+use_repo(swift_deps, "swift_package", "swiftpkg_singular_ios_sdk")
